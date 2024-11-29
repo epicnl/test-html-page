@@ -22,18 +22,59 @@
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
         }
         h2 {
             color: #666;
+        }
+        .feature-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .feature-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .feature-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+        }
+        .contact-form {
+            display: grid;
+            gap: 10px;
         }
     </style>
 </head>
 <body>
     <h1>Welcome to our Test Page</h1>
     <p>This is a simple test page to demonstrate GitHub workflows.</p>
+    
     <div class="content">
         <h2>About Us</h2>
-        <p>We're learning about GitHub operations and web development.</p>
+        <p>We're learning about GitHub operations and web development. Our team is passionate about creating clean and efficient web solutions.</p>
+    </div>
+
+    <div class="content">
+        <h2>Features</h2>
+        <ul class="feature-list">
+            <li>Responsive Design</li>
+            <li>Clean Code Structure</li>
+            <li>Modern CSS Styling</li>
+            <li>GitHub Integration</li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h2>Contact Us</h2>
+        <div class="contact-form">
+            <p>Get in touch with us:</p>
+            <p>Email: example@test.com</p>
+            <p>Phone: (555) 123-4567</p>
+            <p>Address: 123 Test Street, Demo City</p>
+        </div>
     </div>
 </body>
 </html>
