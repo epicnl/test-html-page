@@ -5,76 +5,164 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test HTML Page</title>
     <style>
+        :root {
+            --primary-color: #333;
+            --secondary-color: #666;
+            --accent-color: #4CAF50;
+            --bg-color: #f0f0f0;
+            --spacing-unit: 20px;
+            --shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
-            padding: 20px;
-            background-color: #f0f0f0;
+            padding: var(--spacing-unit);
+            background-color: var(--bg-color);
         }
+
         h1 {
-            color: #333;
-            border-bottom: 2px solid #333;
-            padding-bottom: 10px;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: calc(var(--spacing-unit) / 2);
         }
+
         .content {
             background-color: white;
-            padding: 20px;
+            padding: var(--spacing-unit);
             border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            margin-bottom: var(--spacing-unit);
         }
+
         h2 {
-            color: #666;
+            color: var(--secondary-color);
         }
+
         .feature-list {
             list-style-type: none;
             padding: 0;
         }
+
         .feature-list li {
-            margin-bottom: 10px;
-            padding-left: 20px;
+            margin-bottom: calc(var(--spacing-unit) / 2);
+            padding-left: var(--spacing-unit);
             position: relative;
         }
+
         .feature-list li:before {
             content: '✓';
             position: absolute;
             left: 0;
-            color: #4CAF50;
+            color: var(--accent-color);
         }
+
         .contact-form {
             display: grid;
-            gap: 10px;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-unit);
+            max-width: 500px;
+        }
+
+        @media (min-width: 768px) {
+            .contact-form {
+                grid-template-columns: 1fr 2fr;
+                align-items: center;
+            }
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: calc(var(--spacing-unit) / 2);
+        }
+
+        input, textarea {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        footer {
+            margin-top: var(--spacing-unit);
+            padding: var(--spacing-unit);
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to our Test Page</h1>
-    <p>This is a simple test page to demonstrate GitHub workflows.</p>
-    
-    <div class="content">
-        <h2>About Us</h2>
-        <p>We're learning about GitHub operations and web development. Our team is passionate about creating clean and efficient web solutions.</p>
-    </div>
-
-    <div class="content">
-        <h2>Features</h2>
-        <ul class="feature-list">
-            <li>Responsive Design</li>
-            <li>Clean Code Structure</li>
-            <li>Modern CSS Styling</li>
-            <li>GitHub Integration</li>
-        </ul>
-    </div>
-
-    <div class="content">
-        <h2>Contact Us</h2>
-        <div class="contact-form">
-            <p>Get in touch with us:</p>
-            <p>Email: example@test.com</p>
-            <p>Phone: (555) 123-4567</p>
-            <p>Address: 123 Test Street, Demo City</p>
+    <main>
+        <h1>Welcome to our Test Page</h1>
+        <p>This is a simple test page to demonstrate GitHub workflows.</p>
+        
+        <div class="content">
+            <h2>About Us</h2>
+            <p>We're learning about GitHub operations and web development. Our team is passionate about creating clean and efficient web solutions.</p>
         </div>
-    </div>
+
+        <div class="content">
+            <h2>Features</h2>
+            <ul class="feature-list" aria-label="Product features">
+                <li>Responsive Design</li>
+                <li>Clean Code Structure</li>
+                <li>Modern CSS Styling</li>
+                <li>GitHub Integration</li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h2>Contact Us</h2>
+            <form class="contact-form" action="#" method="POST" aria-label="Contact form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required aria-required="true">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required aria-required="true">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required aria-required="true"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit">Send Message</button>
+                </div>
+
+                <div class="form-group">
+                    <p><strong>Or reach us at:</strong></p>
+                    <p>Phone: (555) 123-4567</p>
+                    <p>Address: 123 Test Street, Demo City</p>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Test HTML Page. All rights reserved.</p>
+        <p>Created for GitHub workflow demonstration</p>
+    </footer>
 </body>
 </html>
